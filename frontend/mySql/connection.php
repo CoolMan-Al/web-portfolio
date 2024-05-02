@@ -1,4 +1,5 @@
 <?php
+#Insert values here
 $host
 $user
 $pass
