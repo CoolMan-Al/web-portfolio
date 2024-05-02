@@ -40,7 +40,8 @@ if(empty($_SESSION["ageEmpty"]) AND empty($_SESSION["userEmpty"]) AND empty($_SE
     $query = "SELECT * FROM users WHERE username = '$username' OR email = '$email'";
     $result = mysqli_query($connection,$query);
     if (mysqli_num_rows($result) == 0) {
-        $query = "INSERT INTO users (username, password, age, email) VALUES ('$username','$password','$age','$email')";
+        $passhash = password_hash($password,  PASSWORD_DEFAULT); 
+        $query = "INSERT INTO users (username, password, age, email) VALUES ('$username','$passhash','$age','$email')";
         mysqli_query($connection,$query);
         $_SESSION["register"] = "$username has been registered";
         header("location:register.php");
