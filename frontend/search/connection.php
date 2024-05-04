@@ -3,7 +3,8 @@
 $host = "";
 $user = "";
 $pass = "";
-$connection = mysqli_connect($host,$user,$pass,$user)
+$data = "";
+$connection = mysqli_connect($host,$user,$pass,$data)
 or exit("Error: Unable to connect to database.");
 session_start();
 ?>
